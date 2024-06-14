@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesss.css') }}">
+    <title>Preview PDF</title>
+</head>
+<body>
+    <h1>Preview PDF</h1>
+    <div>{{ html_content | safe }}</div>
+
+    <!-- Hidden form to trigger PDF download -->
+    <form action="{{ url_for('download', file_id=file_id) }}" method="get">
+        <input type="hidden" name="filename" value="{{ filename }}">
+        <button type="submit">Download PDF</button>
+    </form>
+
+
+</body>
+</html>
